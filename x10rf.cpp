@@ -156,7 +156,7 @@ void x10rf::RFXsensor(uint8_t rfxs_address,uint8_t rfxs_type, char rfxs_packet_t
 void x10rf::x10Switch(char house_code, uint8_t unit_code, uint8_t command){
 	uint8_t x10buff[3]; // Set message buffer 4 bytes
 	uint8_t bTmp = 0; // Tmp byte
-	switch(house_code) {
+	switch(tolower(house_code)) {
 		case 'a': x10buff[0] = B0110; break;
 		case 'b': x10buff[0] = B0111; break;
 		case 'c': x10buff[0] = B0100; break;
