@@ -178,8 +178,11 @@ void x10rf::x10Switch(char house_code, uint8_t unit_code, uint8_t command){
 	x10buff[0] = x10buff[0] << 4; // House code goes into the upper nibble
 
 	switch(command) {
-		case 0: x10buff[2] = (x10buff[2] | 0x20); break;
-		case 1: x10buff[2] = (x10buff[2] & 0x20); break;
+	  case ON:
+		case OFF:
+		case BRIGHT:
+		case DIM:
+			x10buff[2] = command; break;
 	}
 	// Set unit number
 	unit_code = unit_code - 1;

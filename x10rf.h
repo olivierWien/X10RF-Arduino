@@ -15,6 +15,11 @@ Tested on a TI Stellarpad (LM4F120H5QR) and Energia 0101E0010. This should also 
 #ifndef x10rf_h
 #define x10rf_h
 
+#define ON  0x00
+#define OFF 0x20
+#define BRIGHT 0x88
+#define DIM 0x98
+
 #include <stdlib.h>
 
 #if defined(ARDUINO) && ARDUINO >= 100
