@@ -12,7 +12,15 @@ Tested on a TI Stellarpad (LM4F120H5QR) and Energia 0101E0010. This should also 
 */
 
 #include <stdlib.h>
-#include <Energia.h>
+
+#if defined(ARDUINO) && ARDUINO >= 100
+  #include "Arduino.h"
+#elif defined(ENERGIA) // LaunchPad, FraunchPad and StellarPad specific
+  #include "Energia.h"
+#else
+  #include "WProgram.h"
+#endif
+
 #include "x10rf.h"
 
 #define X10_RF_SB_LONG          8960 	// Start burts (leader) = 9ms

@@ -1,8 +1,8 @@
 #include <x10rf.h>
 #include <Energia.h>
-#define tx 11 				// Pin number for the 433mhz OOK transmitter
-#define reps 1 				// Number of times that a RF command must be repeated.
-#define ledpin BLUE_LED 	// Pin for the led that blinks when a command is send. (0 = no blink)
+#define tx 7 				// Pin number for the 433mhz OOK transmitter
+#define reps 5 				// Number of times that a RF command must be repeated.
+#define ledpin 13 //BLUE_LED 	// Pin for the led that blinks when a command is send. (0 = no blink)
 
 
 x10rf myx10 = x10rf(tx,ledpin,reps);
