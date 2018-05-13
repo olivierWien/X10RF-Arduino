@@ -43,7 +43,7 @@ x10rf::x10rf(uint8_t tx_pin, uint8_t led_pin, uint8_t rf_repeats)
 }
 
 void x10rf::RFXmeter(uint8_t rfxm_address, uint8_t rfxm_packet_type, long rfxm_value){
-	uint8_t x10buff[5]; // Set message buffer
+	uint8_t x10buff[6]; // Set message buffer
 	x10buff[0] = rfxm_address;
 	x10buff[1] = (~x10buff[0] & 0xF0) + (x10buff[0] & 0xF); // Calculate byte1 (byte 1 complement upper nibble of byte0)
 	if (rfxm_value > 0xFFFFFF) rfxm_value = 0; 	// We only have 3 byte for data. Is overflowed set to 0	
@@ -70,7 +70,7 @@ void x10rf::RFXmeter(uint8_t rfxm_address, uint8_t rfxm_packet_type, long rfxm_v
 			}
 			x10buff[2] = rfxm_value;
 			break;
-		case 0x02: // calibrate value in <counter value> in µsec.	
+		case 0x02: // calibrate value in <counter value> in Âµsec.	
 			x10buff[4] = (uint8_t) ((rfxm_value >> 16) & 0xff);
 			x10buff[2] = (uint8_t) ((rfxm_value >> 8) & 0xff);
 			x10buff[3] = (uint8_t) (rfxm_value & 0xff);		
