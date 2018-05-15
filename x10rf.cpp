@@ -115,7 +115,7 @@ void x10rf::RFXmeter(uint8_t rfxm_address, uint8_t rfxm_packet_type, long rfxm_v
 }
 
 void x10rf::RFXsensor(uint8_t rfxs_address,uint8_t rfxs_type, char rfxs_packet_type, uint8_t rfxs_value){
-	uint8_t x10buff[3]; // Set message buffer 4 bytes
+	uint8_t x10buff[4]; // Set message buffer 4 bytes
 	x10buff[0] = (rfxs_address << 2);
 	switch (rfxs_type) {
 		case 't': break; 	// Temperature (default)
@@ -154,7 +154,7 @@ void x10rf::RFXsensor(uint8_t rfxs_address,uint8_t rfxs_type, char rfxs_packet_t
 }
 
 void x10rf::x10Switch(char house_code, uint8_t unit_code, uint8_t command){
-	uint8_t x10buff[3]; // Set message buffer 4 bytes
+	uint8_t x10buff[4]; // Set message buffer 4 bytes
 	uint8_t bTmp = 0; // Tmp byte
 	switch(tolower(house_code)) {
 		case 'a': x10buff[0] = B0110; break;
@@ -197,7 +197,7 @@ void x10rf::x10Switch(char house_code, uint8_t unit_code, uint8_t command){
 }
 
 void x10rf::x10Security(uint8_t address, uint8_t command){
-	uint8_t x10buff[3]; // Set message buffer 4 bytes
+	uint8_t x10buff[4]; // Set message buffer 4 bytes
 	x10buff[0] = address;
 	x10buff[1] = (~x10buff[0] & 0xF) + (x10buff[0] & 0xF0); // Calculate byte1 (byte 1 complement 
 	x10buff[2] = command;
